@@ -17,10 +17,11 @@ const main = async () => {
     "/send-message",
     handleCtx(async (bot, req, res) => {
       const body = req.body;
+      const number = body.number;
       const message = body.message;
       const mediaUrl = body.mediaUrl;
 
-      await bot.sendMessage("", message, {
+      await bot.sendMessage(number, message, {
         media: mediaUrl,
       });
       res.end("OK");
